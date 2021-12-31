@@ -59,18 +59,18 @@ function Player() {
     }
   }, [session, isPlayingSong, currentTrackId]);
 
-  // useEffect(() => {
-  //   if (volume >= 0 && volume <= 100) {
-  //     debouncedVolume(volume);
-  //   }
-  // }, [volume]);
+  useEffect(() => {
+    if (volume >= 0 && volume <= 100) {
+      debouncedVolume(volume);
+    }
+  }, [volume]);
 
-  // const debouncedVolume = useCallback(
-  //   debounce((volume) => {
-  //     spotifyApi.setVolume(volume);
-  //   }, 500),
-  //   [volume],
-  // );
+  const debouncedVolume = useCallback(
+    debounce((volume) => {
+      spotifyApi.setVolume(volume);
+    }, 100),
+    [volume],
+  );
 
   return (
     <div className="h-24 w-screen bg-gradient-to-b to-black from-gray-900 border-t border-gray-800 px-2 md:px-8 grid grid-cols-3 text-xs md:text-base text-white">
