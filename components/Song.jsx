@@ -26,13 +26,13 @@ function Song({
 
   return (
     <div
-      className="grid grid-cols-2 text-gray-500 hover:bg-gray-900 rounded-lg py-3 px-4 cursor-pointer"
+      className="grid grid-cols-2 text-gray-500 hover:bg-gray-900 rounded-lg py-3 px-4 cursor-pointer text-sm"
       onClick={playSong}>
       <div className="flex items-center space-x-4">
         <p>{order + 1}</p>
         <img className="h-10 w-10" src={album.images?.[2]?.url} alt="" />
         <div>
-          <p className="w-36 lg:w-64 truncate text-white">{name}</p>
+          <p className="w-36 lg:w-64 truncate text-white text-base font-semibold">{name}</p>
           <p className="w-40">{artists[0].name}</p>
         </div>
       </div>
