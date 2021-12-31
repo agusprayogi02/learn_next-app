@@ -1,4 +1,6 @@
+import {getSession} from 'next-auth/react';
 import Head from 'next/head';
+import Center from '../components/Center';
 import Sidebar from '../components/Sidebar';
 
 export default function Home() {
@@ -8,13 +10,20 @@ export default function Home() {
         <title>Spotify 2.0</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=''>
+      <main className="flex">
         <Sidebar />
-        {/* Center */}
+        <Center />
       </main>
-      <div>
-        {/* {Player} */}
-      </div>
+      <div>{/* {Player} */}</div>
     </div>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const session = await getSession(ctx);
+  return {
+    props: {
+      session,
+    },
+  };
 }
